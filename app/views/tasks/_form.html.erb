@@ -1,0 +1,20 @@
+
+<%= form_with model: @task do |form| %>
+<%# title %>
+<%= form.label :title, "Title" %>
+<%= form.text_area :title, size: "70x5" %>
+
+<%# details %>
+<%= form.label :details, "Details" %>
+<%= form.text_area :details, size: "70x5" %>
+
+<% unless @task.new_record? %>
+  <%= form.check_box :completed %>
+  <%= form.label :completed, "Completed" %>
+<% end %>
+
+<%# create button %>
+<%= form.button "Create" %>
+<% end %>
+
+<%= link_to "Go back to My Tasks", tasks_path %>
